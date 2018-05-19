@@ -6,13 +6,8 @@ using System.Threading.Tasks;
 
 namespace Turtle.Console.Models
 {
-    class Turtle
+    class Mine
     {
-        public State State { get; set; }
-
-        public void Move(Directions direction)
-        {
-
-        }
+        public Point Position { get; set; }
     }
 }

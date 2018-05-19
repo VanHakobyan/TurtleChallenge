@@ -9,6 +9,6 @@ namespace Turtle.Console.Models
     public class State
     {
         public Point Position { get; set; }
-        public string Direction { get; set; }
+        public Directions Direction { get; set; }
     }
 }

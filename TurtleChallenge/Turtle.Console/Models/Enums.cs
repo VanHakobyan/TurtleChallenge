@@ -6,13 +6,11 @@ using System.Threading.Tasks;
 
 namespace Turtle.Console.Models
 {
-    class Turtle
+    enum Directions
     {
-        public State State { get; set; }
-
-        public void Move(Directions direction)
-        {
-
-        }
+        North,
+        South,
+        East,
+        West
     }
 }
