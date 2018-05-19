@@ -23,7 +23,22 @@ namespace Turtle.Library
         public bool IsDanger(Point position)
         {
             var adjacentPoints = GetAdjacentPositions(position);
-            return adjacentPoints.Any(x=> _grid[position] is Mine);
+            return adjacentPoints.Any(x => _grid[position] is Mine);
+        }
+
+        public bool IsDead(Point position)
+        {
+            return _grid[position] is Mine;
+        }
+
+        public bool IsOutOfBounds(Point position)
+        {
+            return position.X < 0 || position.X >= _height || position.Y < 0 || position.Y >= _width;
+        }
+
+        public bool IsExit(Point position)
+        {
+            return _grid[position] is Exit;
         }
 
         private List<Point> GetAdjacentPositions(Point position)
@@ -31,13 +46,13 @@ namespace Turtle.Library
             var list = new List<Point>();
 
             if (position.X - 1 >= 0) list.Add(new Point { X = position.X - 1, Y = position.Y });
-            if (position.X - 1 >= 0 && position.Y - 1 >= 0) list.Add(new Point { X = position.X - 1, Y = position.Y - 1});
-            if (position.X - 1 >= 0 && position.Y + 1 < _width) list.Add(new Point { X = position.X - 1, Y = position.Y + 1});
-            if (position.X + 1 < _height) list.Add(new Point { X = position.X + 1, Y = position.Y});
-            if (position.X + 1 < _height && position.Y - 1 >= 0) list.Add(new Point { X = position.X + 1, Y = position.Y - 1});
-            if (position.X + 1 < _height && position.Y + 1 < _width) list.Add(new Point { X = position.X + 1, Y = position.Y + 1});
-            if (position.Y - 1 >= 0) list.Add(new Point {X = position.X, Y = position.Y - 1 });
-            if (position.Y + 1 < _width) list.Add(new Point {X = position.X, Y = position.Y + 1 });
+            if (position.X - 1 >= 0 && position.Y - 1 >= 0) list.Add(new Point { X = position.X - 1, Y = position.Y - 1 });
+            if (position.X - 1 >= 0 && position.Y + 1 < _width) list.Add(new Point { X = position.X - 1, Y = position.Y + 1 });
+            if (position.X + 1 < _height) list.Add(new Point { X = position.X + 1, Y = position.Y });
+            if (position.X + 1 < _height && position.Y - 1 >= 0) list.Add(new Point { X = position.X + 1, Y = position.Y - 1 });
+            if (position.X + 1 < _height && position.Y + 1 < _width) list.Add(new Point { X = position.X + 1, Y = position.Y + 1 });
+            if (position.Y - 1 >= 0) list.Add(new Point { X = position.X, Y = position.Y - 1 });
+            if (position.Y + 1 < _width) list.Add(new Point { X = position.X, Y = position.Y + 1 });
 
             return list;
         }
