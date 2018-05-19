@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Turtle.Library
+namespace Turtle.Library.GameActions
 {
-    class Turtle
+    public class Exit
     {
     }
 }
