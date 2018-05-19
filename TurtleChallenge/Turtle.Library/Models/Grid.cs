@@ -6,25 +6,38 @@ using System.Threading.Tasks;
 
 namespace Turtle.Library.Models
 {
-    class Grid
+    public class Grid
     {
-        private List<Element> _points = new List<Element>();
+        private Element[][] _elements;
+        public int Width { get; private set; }
+        public int Height { get; private set; }
 
         public Grid(int x, int y)
         {
+            Width = y;
+            Height = x;
+
+            _elements = new Element[x][];
             for (int i = 0; i < x; i++)
             {
+                _elements[i] = new Element[y];
                 for (int j = 0; j < y; j++)
                 {
-                    _points.Add(new Element() { Position = new Point { X = i, Y = j } });
+                    _elements[i][j] = new Element() { Position = new Point { X = i, Y = j } };
                 }
             }
         }
 
-        public Element this[int index]
+        public Element this[int index1, int index2]
         {
-            get { return _points[index]; }
-            set { _points[index] = value; }
+            get { return _elements[index1][index2]; }
+            set { _elements[index1][index2] = value; }
+        }
+
+        public Element this[Point p]
+        {
+            get { return _elements[p.X][p.Y]; }
+            set { _elements[p.X][p.Y] = value; }
         }
     }
 }
