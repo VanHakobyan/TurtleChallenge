@@ -55,6 +55,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Settings\move-exit.csv" />
+    <None Include="Settings\move-hit mine.csv" />
+    <None Include="Settings\move-no end.csv" />
+    <None Include="Settings\settings.csv" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Turtle.Library\Turtle.Library.csproj">
+      <Project>{a6ce9643-da7e-4d00-a069-394042a82219}</Project>
+      <Name>Turtle.Library</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

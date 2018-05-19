@@ -46,12 +46,7 @@
     <Compile Include="GameActions\Mine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="GameActions\Turtle.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Settings\move-exit.csv" />
-    <None Include="Settings\move-hit mine.csv" />
-    <None Include="Settings\move-no end.csv" />
-    <None Include="Settings\settings.csv" />
+    <Compile Include="SimpleSettingsModel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

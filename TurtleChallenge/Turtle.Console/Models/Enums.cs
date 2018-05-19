@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Turtle.Console.Models
 {
-    enum Directions
+    public enum Directions
     {
         North,
         South,

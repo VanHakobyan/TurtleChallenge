@@ -8,7 +8,7 @@ namespace Turtle.Console.Models
 {
     class Grid
     {
-        private List<Point> _points;
+        private List<Point> _points= new List<Point>();
 
         public Grid(int x, int y)
         {
