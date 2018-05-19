@@ -74,18 +74,32 @@ namespace Turtle.Library.Models
         {
             foreach (var minePosition in mines)
             {
-                _grid[minePosition] = new Mine() { Position = minePosition };
+                try
+                {
+                    _grid[minePosition] = new Mine() { Position = minePosition };
+                }
+                catch
+                {/*ignore*/ }
             }
         }
 
         private void SetExit(Point exitPosition)
         {
-            _grid[exitPosition] = new Exit() { Position = exitPosition };
+            try
+            {
+                _grid[exitPosition] = new Exit() { Position = exitPosition };
+            }
+            catch
+            {/*ignore*/}
         }
 
         private void SetTurtle(Point turtlePosition)
         {
-            _grid[turtlePosition] = Turtle.Instance(turtlePosition);
+            try {
+                _grid[turtlePosition] = Turtle.Instance(turtlePosition);
+            }
+            catch
+            {/*ignore*/}
         }
     }
 }
