@@ -1,5 +1,8 @@
 ﻿using System.Collections.Generic;
-using Turtle.Library.ReadModels;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Turtle.Library.Models
 {
@@ -33,18 +36,32 @@ namespace Turtle.Library.Models
             {
                 var turtle = _grid[_turtleStartPoint] as Turtle;
                 if (_observer.IsDanger(turtle.Position)) Printer.PrintSimple("Danger!!!");
+                else Printer.PrintSimple("Turtle moved, it's alive!");
+                Thread.Sleep(1500);
                 turtle.Move(Directions.East);
                 if (_observer.IsDanger(turtle.Position)) Printer.PrintSimple("Danger!!!");
+                else Printer.PrintSimple("Turtle moved, it's alive!");
+                Thread.Sleep(1500);
                 turtle.Move(Directions.South);
                 if (_observer.IsDanger(turtle.Position)) Printer.PrintSimple("Danger!!!");
+                else Printer.PrintSimple("Turtle moved, it's alive!");
+                Thread.Sleep(1500);
                 turtle.Move(Directions.South);
                 if (_observer.IsDanger(turtle.Position)) Printer.PrintSimple("Danger!!!");
+                else Printer.PrintSimple("Turtle moved, it's alive!");
+                Thread.Sleep(1500);
                 turtle.Move(Directions.East);
                 if (_observer.IsDanger(turtle.Position)) Printer.PrintSimple("Danger!!!");
+                else Printer.PrintSimple("Turtle moved, it's alive!");
+                Thread.Sleep(1500);
                 turtle.Move(Directions.North);
                 if (_observer.IsDanger(turtle.Position)) Printer.PrintSimple("Danger!!!");
+                else Printer.PrintSimple("Turtle moved, it's alive!");
+                Thread.Sleep(1500);
                 turtle.Move(Directions.West);
                 if (_observer.IsDanger(turtle.Position)) Printer.PrintSimple("Danger!!!");
+                else Printer.PrintSimple("Turtle moved, it's alive!");
+                Thread.Sleep(1500);
             }
         }
 
@@ -60,18 +77,32 @@ namespace Turtle.Library.Models
         {
             foreach (var minePosition in mines)
             {
-                _grid[minePosition] = new Mine() { Position = minePosition };
+                try
+                {
+                    _grid[minePosition] = new Mine() { Position = minePosition };
+                }
+                catch
+                {/*ignore*/ }
             }
         }
 
         private void SetExit(Point exitPosition)
         {
-            _grid[exitPosition] = new Exit() { Position = exitPosition };
+            try
+            {
+                _grid[exitPosition] = new Exit() { Position = exitPosition };
+            }
+            catch
+            {/*ignore*/}
         }
 
         private void SetTurtle(Point turtlePosition)
         {
-            _grid[turtlePosition] = Turtle.Instance(turtlePosition);
+            try {
+                _grid[turtlePosition] = Turtle.Instance(turtlePosition);
+            }
+            catch
+            {/*ignore*/}
         }
     }
 }

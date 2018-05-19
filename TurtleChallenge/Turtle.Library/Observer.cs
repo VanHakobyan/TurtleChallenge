@@ -20,23 +20,32 @@ namespace Turtle.Library
             _grid = grid;
         }
 
-        public bool IsDanger(Point position)
+        public void Observe(Point position)
+        {
+            //if (IsExit(position)) Printer.PrintSimple();
+            //else if (IsDead(position)) return State.IsDead;
+            //else if (IsOutOfBounds(position)) return State.IsOutOfBounds;
+            //else if (IsDanger(position)) return State.IsDanger;
+            //else return State.Normal;
+        }
+
+        private bool IsDanger(Point position)
         {
             var adjacentPoints = GetAdjacentPositions(position);
             return adjacentPoints.Any(x => _grid[position] is Mine);
         }
 
-        public bool IsDead(Point position)
+        private bool IsDead(Point position)
         {
             return _grid[position] is Mine;
         }
 
-        public bool IsOutOfBounds(Point position)
+        private bool IsOutOfBounds(Point position)
         {
             return position.X < 0 || position.X >= _height || position.Y < 0 || position.Y >= _width;
         }
 
-        public bool IsExit(Point position)
+        private bool IsExit(Point position)
         {
             return _grid[position] is Exit;
         }
