@@ -18,9 +18,7 @@ namespace Turtle.Library
         private FileReader() { }
         public static FileReader Instance()
         {
-            if (_fileReader == null)
-                _fileReader = new FileReader();
-            return _fileReader;
+            return _fileReader ?? (_fileReader = new FileReader());
         }
         #endregion
 

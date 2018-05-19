@@ -12,9 +12,7 @@
         private Turtle(Point position) { Position = position; }
         public static Turtle Instance(Point position)
         {
-            if (_turtle == null)
-                _turtle = new Turtle(position);
-            return _turtle;
+            return _turtle ?? (_turtle = new Turtle(position));
         }
         #endregion
 
