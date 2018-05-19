@@ -6,11 +6,11 @@ namespace Turtle.Library
 {
     public static class Printer
     {
-        private const string FacingSouth = "Turtle now facing South";
-        private static string _movedFromTo = "Turtle moved from position {from} to {to}";
-        private const string Danger = "Danger";
-        private const string MineHit = "Mine Hit";
-        private const string Exit = "Exit";
+        public const string FacingSouth = "Turtle now facing South";
+        public static string _movedFromTo = "Turtle moved from position {from} to {to}";
+        public const string Danger = "Danger";
+        public const string MineHit = "Mine Hit";
+        public const string Exit = "Exit";
 
         public static void Print(Point pointFrom, Point pointTo, string text, string action = null)
         {

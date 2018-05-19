@@ -1,24 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using Turtle.Library.ReadModels;
 
 namespace Turtle.Library.Models
 {
     public class Game
     {
-        private int _width = 4;
-        private int _height = 5;
-        private Point _turtleStartPoint = new Point { Y = 0, X = 0 };
+        private Point _turtleStartPoint;
+        private FileReader _fileReader;
+        private AdvanceSettingModel advanceSettings;
         private Grid _grid;
         private Observer _observer;
 
         private Game()
         {
-            Initialize();
-            _grid = new Grid(5, 4);
+            _fileReader = FileReader.Instance();
+            advanceSettings = _fileReader.GetAdvanceSettings();
+            _turtleStartPoint = advanceSettings.StartPoint;
+            _grid = new Grid(advanceSettings.Size.X, advanceSettings.Size.Y);
             _observer = new Observer(_grid);
+            Initialize();
         }
 
         public static Game CreateNewGame()
@@ -28,6 +28,7 @@ namespace Turtle.Library.Models
 
         public void Start()
         {
+            Printer.PrintSimple(Printer.FacingSouth);
             while (true)
             {
                 var turtle = _grid[_turtleStartPoint] as Turtle;
@@ -50,8 +51,8 @@ namespace Turtle.Library.Models
         private void Initialize()
         {
             SetTurtle(_turtleStartPoint);
-            SetExit(new Point {X = 3, Y = 3 });
-            SetMines(new List<Point> { new Point { X = 0, Y = 1 } , new Point { X = 1, Y = 1 } , new Point { X = 3, Y = 2 } });
+            SetExit(advanceSettings.ExitPoint);
+            SetMines(advanceSettings.MinePoints);
             
         }
 
