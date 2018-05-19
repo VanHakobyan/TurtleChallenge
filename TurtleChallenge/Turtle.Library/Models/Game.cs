@@ -10,11 +10,15 @@ namespace Turtle.Library.Models
     {
         private int _width = 4;
         private int _height = 5;
-        private Grid _grid = new Grid(5, 4);
+        private Point _turtleStartPoint = new Point { Y = 0, X = 0 };
+        private Grid _grid;
+        private Observer _observer;
 
         private Game()
         {
             Initialize();
+            _grid = new Grid(5, 4);
+            _observer = new Observer(_grid);
         }
 
         public static Game CreateNewGame()
@@ -24,14 +28,31 @@ namespace Turtle.Library.Models
 
         public void Start()
         {
-
+            while (true)
+            {
+                var turtle = _grid[_turtleStartPoint] as Turtle;
+                if (_observer.IsDanger(turtle.Position)) Printer.PrintSimple("Danger!!!");
+                turtle.Move(Directions.East);
+                if (_observer.IsDanger(turtle.Position)) Printer.PrintSimple("Danger!!!");
+                turtle.Move(Directions.South);
+                if (_observer.IsDanger(turtle.Position)) Printer.PrintSimple("Danger!!!");
+                turtle.Move(Directions.South);
+                if (_observer.IsDanger(turtle.Position)) Printer.PrintSimple("Danger!!!");
+                turtle.Move(Directions.East);
+                if (_observer.IsDanger(turtle.Position)) Printer.PrintSimple("Danger!!!");
+                turtle.Move(Directions.North);
+                if (_observer.IsDanger(turtle.Position)) Printer.PrintSimple("Danger!!!");
+                turtle.Move(Directions.West);
+                if (_observer.IsDanger(turtle.Position)) Printer.PrintSimple("Danger!!!");
+            }
         }
 
         private void Initialize()
         {
-            SetTurtle(new Point { Y = 0, X = 0 });
+            SetTurtle(_turtleStartPoint);
             SetExit(new Point {X = 3, Y = 3 });
             SetMines(new List<Point> { new Point { X = 0, Y = 1 } , new Point { X = 1, Y = 1 } , new Point { X = 3, Y = 2 } });
+            
         }
 
         private void SetMines(List<Point> mines)
@@ -49,7 +70,7 @@ namespace Turtle.Library.Models
 
         private void SetTurtle(Point turtlePosition)
         {
-            _grid[turtlePosition] = new Turtle() { Position = turtlePosition };
+            _grid[turtlePosition] = Turtle.Instance(turtlePosition);
         }
     }
 }

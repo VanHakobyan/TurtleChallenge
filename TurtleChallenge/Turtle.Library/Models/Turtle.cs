@@ -9,18 +9,32 @@
         /// Tutle can be one 
         /// </summary>
         private static Turtle _turtle;
-        private Turtle() { }
-        public static Turtle Instance()
+        private Turtle(Point position) { Position = position; }
+        public static Turtle Instance(Point position)
         {
             if (_turtle != null)
-                _turtle = new Turtle();
+                _turtle = new Turtle(position);
             return _turtle;
         }
         #endregion
 
         public void Move(Directions direction)
         {
-
+            switch (direction)
+            {
+                case Directions.North:
+                    _turtle.Position = new Point { X = _turtle.Position.X - 1, Y = _turtle.Position.Y };
+                    break;
+                case Directions.South:
+                    _turtle.Position = new Point { X = _turtle.Position.X + 1, Y = _turtle.Position.Y };
+                    break;
+                case Directions.East:
+                    _turtle.Position = new Point { X = _turtle.Position.X, Y = _turtle.Position.Y + 1 };
+                    break;
+                case Directions.West:
+                    _turtle.Position = new Point { X = _turtle.Position.X, Y = _turtle.Position.Y - 1};
+                    break;
+            }
         }
     }
 }
