@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using Turtle.Console.Models;
 using Turtle.Library;
+using Turtle.Library.Models;
 
 namespace Turtle.Console
 {

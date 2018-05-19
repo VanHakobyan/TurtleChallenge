@@ -29,32 +29,27 @@ namespace Turtle.Library.Models
 
         private void Initialize()
         {
-            //SetTurtle();
-            //SetExit();
-            //SetMines();
+            SetTurtle(new Point { Y = 0, X = 0 });
+            SetExit(new Point {X = 3, Y = 3 });
+            SetMines(new List<Point> { new Point { X = 0, Y = 1 } , new Point { X = 1, Y = 1 } , new Point { X = 3, Y = 2 } });
         }
 
         private void SetMines(List<Point> mines)
         {
             foreach (var minePosition in mines)
             {
-                _grid[GetGridPosition(minePosition)] = new Mine() { Position = minePosition };
+                _grid[minePosition] = new Mine() { Position = minePosition };
             }
         }
 
         private void SetExit(Point exitPosition)
         {
-            _grid[GetGridPosition(exitPosition)] = new Exit() { Position = exitPosition };
+            _grid[exitPosition] = new Exit() { Position = exitPosition };
         }
 
         private void SetTurtle(Point turtlePosition)
         {
-            _grid[GetGridPosition(turtlePosition)] = new Turtle() { Position = turtlePosition };
-        }
-
-        private int GetGridPosition(Point p)
-        {
-            return p.Y - 1 + p.X * _width;
+            _grid[turtlePosition] = new Turtle() { Position = turtlePosition };
         }
     }
 }
