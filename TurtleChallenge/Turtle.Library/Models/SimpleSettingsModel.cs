@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Turtle.Library
+namespace Turtle.Library.Models
 {
     public class SimpleSettingsModel
     {
