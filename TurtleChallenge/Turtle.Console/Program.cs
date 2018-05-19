@@ -1,4 +1,10 @@
-﻿using Turtle.Library.Models;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using Turtle.Console.Models;
 using Turtle.Library;
 
 namespace Turtle.Console
@@ -11,6 +17,8 @@ namespace Turtle.Console
             var simpleSettingsModel = fileReader.GetAdvanceSettings();
             var game = Game.CreateNewGame();
             game.Start();
+
+            Thread.Sleep(60000);
         }
     }
 }
