@@ -13,7 +13,7 @@ namespace Turtle.Console
     {
         static void Main(string[] args)
         {
-            var fileReader=new FileReader();
+            var fileReader = FileReader.Instance();
             var simpleSettingsModel = fileReader.GetAdvanceSettings();
             var game = Game.CreateNewGame();
             game.Start();
