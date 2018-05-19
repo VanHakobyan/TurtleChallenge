@@ -1,0 +1,6 @@
+Size, 4, 5
+Starting position, x, 1, y, 1, dir, North
+Exit point, x, 3, y, 5
+Mine, x, 2, y, 2
+Mine, x, 2, y, 4
+Mine, x, 4, y, 4
