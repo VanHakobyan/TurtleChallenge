@@ -12,7 +12,7 @@
         private Turtle(Point position) { Position = position; }
         public static Turtle Instance(Point position)
         {
-            if (_turtle != null)
+            if (_turtle == null)
                 _turtle = new Turtle(position);
             return _turtle;
         }

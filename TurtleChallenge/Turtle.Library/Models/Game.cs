@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Turtle.Library.Models
@@ -16,9 +17,9 @@ namespace Turtle.Library.Models
 
         private Game()
         {
-            Initialize();
             _grid = new Grid(5, 4);
             _observer = new Observer(_grid);
+            Initialize();
         }
 
         public static Game CreateNewGame()
@@ -32,18 +33,32 @@ namespace Turtle.Library.Models
             {
                 var turtle = _grid[_turtleStartPoint] as Turtle;
                 if (_observer.IsDanger(turtle.Position)) Printer.PrintSimple("Danger!!!");
+                else Printer.PrintSimple("Turtle moved, it's alive!");
+                Thread.Sleep(1500);
                 turtle.Move(Directions.East);
                 if (_observer.IsDanger(turtle.Position)) Printer.PrintSimple("Danger!!!");
+                else Printer.PrintSimple("Turtle moved, it's alive!");
+                Thread.Sleep(1500);
                 turtle.Move(Directions.South);
                 if (_observer.IsDanger(turtle.Position)) Printer.PrintSimple("Danger!!!");
+                else Printer.PrintSimple("Turtle moved, it's alive!");
+                Thread.Sleep(1500);
                 turtle.Move(Directions.South);
                 if (_observer.IsDanger(turtle.Position)) Printer.PrintSimple("Danger!!!");
+                else Printer.PrintSimple("Turtle moved, it's alive!");
+                Thread.Sleep(1500);
                 turtle.Move(Directions.East);
                 if (_observer.IsDanger(turtle.Position)) Printer.PrintSimple("Danger!!!");
+                else Printer.PrintSimple("Turtle moved, it's alive!");
+                Thread.Sleep(1500);
                 turtle.Move(Directions.North);
                 if (_observer.IsDanger(turtle.Position)) Printer.PrintSimple("Danger!!!");
+                else Printer.PrintSimple("Turtle moved, it's alive!");
+                Thread.Sleep(1500);
                 turtle.Move(Directions.West);
                 if (_observer.IsDanger(turtle.Position)) Printer.PrintSimple("Danger!!!");
+                else Printer.PrintSimple("Turtle moved, it's alive!");
+                Thread.Sleep(1500);
             }
         }
 
