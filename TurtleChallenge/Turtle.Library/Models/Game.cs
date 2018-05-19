@@ -49,7 +49,7 @@ namespace Turtle.Library.Models
 
         private void SetTurtle(Point turtlePosition)
         {
-            _grid[GetGridPosition(turtlePosition)] = new Turtle() { Position = turtlePosition };
+            //_grid[GetGridPosition(turtlePosition)] = Turtle() { Position = turtlePosition };
         }
 
         private int GetGridPosition(Point p)

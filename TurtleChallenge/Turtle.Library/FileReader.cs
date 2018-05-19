@@ -8,6 +8,22 @@ namespace Turtle.Library
 {
     public class FileReader
     {
+        #region Singleton
+        /// <summary>
+        /// Singleton implementation
+        /// 
+        /// File reader can be one 
+        /// </summary>
+        private static FileReader _fileReader;
+        private FileReader() { }
+        public static FileReader Instance()
+        {
+            if (_fileReader != null)
+                _fileReader = new FileReader();
+            return _fileReader;
+        }
+        #endregion
+
         private List<string> GetListMoveExit()
         {
             var moveExit = File.ReadAllText("..\\..\\Settings\\move-exit.csv");
@@ -58,7 +74,6 @@ namespace Turtle.Library
                 int.TryParse(minePointStrings[4], out var mineY);
                 settings.MinePoints.Add(new Point(mineX, mineY));
             }
-
             return settings;
         }
     }
