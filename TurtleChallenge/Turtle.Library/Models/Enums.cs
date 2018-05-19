@@ -4,10 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Turtle.Console.Models
+namespace Turtle.Library.Models
 {
-    public class Element
+    public enum Directions
     {
-        public Point Position { get; set; }
+        North,
+        South,
+        East,
+        West
     }
 }

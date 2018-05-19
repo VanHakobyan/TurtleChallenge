@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Turtle.Console.Models
+namespace Turtle.Library.Models
 {
-    class Game
+    public class Game
     {
         private int _width = 4;
         private int _height = 5;

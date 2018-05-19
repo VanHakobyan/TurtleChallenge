@@ -42,14 +42,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\Element.cs" />
-    <Compile Include="Models\Enums.cs" />
-    <Compile Include="Models\Exit.cs" />
-    <Compile Include="Models\Game.cs" />
-    <Compile Include="Models\Grid.cs" />
-    <Compile Include="Models\Mine.cs" />
-    <Compile Include="Models\Point.cs" />
-    <Compile Include="Models\Turtle.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

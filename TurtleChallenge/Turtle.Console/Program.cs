@@ -1,4 +1,4 @@
-﻿using Turtle.Console.Models;
+﻿using Turtle.Library.Models;
 using Turtle.Library;
 
 namespace Turtle.Console
@@ -7,7 +7,7 @@ namespace Turtle.Console
     {
         static void Main(string[] args)
         {
-            FileReader fileReader=new FileReader();
+            var fileReader=new FileReader();
             var simpleSettingsModel = fileReader.GetAdvanceSettings();
             var game = Game.CreateNewGame();
             game.Start();

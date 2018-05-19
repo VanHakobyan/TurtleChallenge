@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using System.Drawing;
+using Turtle.Library.Models;
 
-namespace Turtle.Library.Models
+namespace Turtle.Library.ReadModels
 {
     public class AdvanceSettingModel
     {

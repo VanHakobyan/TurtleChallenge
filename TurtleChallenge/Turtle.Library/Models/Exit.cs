@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Turtle.Console.Models
+namespace Turtle.Library.Models
 {
-    public struct Point
+    class Exit : Element
     {
-        public int X { get; set; }
-        public int Y { get; set; }
     }
 }
