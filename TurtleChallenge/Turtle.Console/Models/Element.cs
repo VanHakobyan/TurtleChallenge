@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace Turtle.Console.Models
 {
-    public class State
+    public class Element
     {
         public Point Position { get; set; }
-        public Directions Direction { get; set; }
     }
 }

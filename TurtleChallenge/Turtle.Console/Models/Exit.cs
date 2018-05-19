@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace Turtle.Console.Models
 {
-    class Exit
+    class Exit : Element
     {
-        public Point Position { get; set; }
     }
 }

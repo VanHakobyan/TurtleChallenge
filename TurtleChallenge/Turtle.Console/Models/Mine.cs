@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace Turtle.Console.Models
 {
-    class Mine
+    public class Mine : Element
     {
-        public Point Position { get; set; }
     }
 }

@@ -8,7 +8,7 @@ namespace Turtle.Console.Models
 {
     class Grid
     {
-        private List<Point> _points;
+        private List<Element> _points = new List<Element>();
 
         public Grid(int x, int y)
         {
@@ -16,9 +16,15 @@ namespace Turtle.Console.Models
             {
                 for (int j = 0; j < y; j++)
                 {
-                    _points.Add(new Point { X = i, Y = j });
+                    _points.Add(new Element() { Position = new Point { X = i, Y = j } });
                 }
             }
+        }
+
+        public Element this[int index]
+        {
+            get { return _points[index]; }
+            set { _points[index] = value; }
         }
     }
 }
