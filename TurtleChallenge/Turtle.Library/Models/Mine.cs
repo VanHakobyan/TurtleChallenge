@@ -4,13 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Turtle.Console.Models
+namespace Turtle.Library.Models
 {
-    public enum Directions
+    public class Mine : Element
     {
-        North,
-        South,
-        East,
-        West
     }
 }
