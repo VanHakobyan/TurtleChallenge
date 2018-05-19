@@ -1,8 +1,6 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
+using Turtle.Library.ReadModels;
 
 namespace Turtle.Library.Models
 {
@@ -19,7 +17,7 @@ namespace Turtle.Library.Models
             _fileReader = FileReader.Instance();
             advanceSettings = _fileReader.GetAdvanceSettings();
             _turtleStartPoint = advanceSettings.StartPoint;
-            _grid = new Grid(advanceSettings.Size.X, advanceSettings.Size.Y);
+            _grid = new Grid(advanceSettings.Size.Y, advanceSettings.Size.X);
             _observer = new Observer(_grid);
             Initialize();
         }

@@ -29,7 +29,7 @@ namespace Turtle.Library
             //else return State.Normal;
         }
 
-        private bool IsDanger(Point position)
+        public bool IsDanger(Point position)
         {
             var adjacentPoints = GetAdjacentPositions(position);
             return adjacentPoints.Any(x => _grid[position] is Mine);
