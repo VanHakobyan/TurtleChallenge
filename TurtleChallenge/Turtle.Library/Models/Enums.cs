@@ -13,4 +13,13 @@ namespace Turtle.Library.Models
         East,
         West
     }
+
+    public enum State
+    {
+        IsDead,
+        Normal,
+        IsOutOfBounds,
+        IsExit,
+        IsDanger
+    }
 }

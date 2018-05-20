@@ -39,6 +39,25 @@ namespace Turtle.Library.Models
             {
                 if (moves[i] == "r") turtle.Rotate();
                 else if (moves[i] == "m") turtle.Move();
+                var situation = _observer.Observe(turtle.Position);
+                if (situation == State.IsDead)
+                {
+                    Printer.Print("Our poor turtle is dead");
+                    break;
+                }
+                else if (situation == State.IsExit)
+                {
+                    Printer.Print("success");
+                    break;
+                }
+                else if (situation == State.IsOutOfBounds)
+                {
+                    Printer.Print("Turtle went out of bounds");
+                }
+                else if (situation == State.IsDanger)
+                {
+                    Printer.Print("Danger is near!");
+                }
             }
         }
 
