@@ -8,16 +8,18 @@ namespace Turtle.Library.Models
     {
         private Point _turtleStartPoint;
         private FileReader _fileReader;
-        private AdvanceSettingModel advanceSettings;
+        private AdvanceSettingModel _advancedSettings;
+        private SimpleSettingsModel _simpleSettings;
         private Grid _grid;
         private Observer _observer;
 
         private Game()
         {
             _fileReader = FileReader.Instance();
-            advanceSettings = _fileReader.GetAdvanceSettings();
-            _turtleStartPoint = advanceSettings.StartPoint;
-            _grid = new Grid(advanceSettings.Size.Y, advanceSettings.Size.X);
+            _advancedSettings = _fileReader.GetAdvanceSettings();
+            _simpleSettings = _fileReader.GetSimpleSettings();
+            _turtleStartPoint = _advancedSettings.StartPoint;
+            _grid = new Grid(_advancedSettings.Size.Y, _advancedSettings.Size.X);
             _observer = new Observer(_grid);
             Initialize();
         }
@@ -29,46 +31,22 @@ namespace Turtle.Library.Models
 
         public void Start()
         {
-            Printer.PrintSimple(Printer.FacingSouth);
-            while (true)
+            var moves = _simpleSettings.MoveExit;
+            var turtle = _grid[_turtleStartPoint] as Turtle;
+            if (System.Enum.TryParse<Directions>(_advancedSettings.Direction, out var dir)) turtle.Direction = dir;
+            Printer.Print(turtle);
+            for (int i = 0; i < moves.Count; i++)
             {
-                var turtle = _grid[_turtleStartPoint] as Turtle;
-                if (_observer.IsDanger(turtle.Position)) Printer.PrintSimple("Danger!!!");
-                else Printer.PrintSimple("Turtle moved, it's alive!");
-                Thread.Sleep(1500);
-                turtle.Move(Directions.East);
-                if (_observer.IsDanger(turtle.Position)) Printer.PrintSimple("Danger!!!");
-                else Printer.PrintSimple("Turtle moved, it's alive!");
-                Thread.Sleep(1500);
-                turtle.Move(Directions.South);
-                if (_observer.IsDanger(turtle.Position)) Printer.PrintSimple("Danger!!!");
-                else Printer.PrintSimple("Turtle moved, it's alive!");
-                Thread.Sleep(1500);
-                turtle.Move(Directions.South);
-                if (_observer.IsDanger(turtle.Position)) Printer.PrintSimple("Danger!!!");
-                else Printer.PrintSimple("Turtle moved, it's alive!");
-                Thread.Sleep(1500);
-                turtle.Move(Directions.East);
-                if (_observer.IsDanger(turtle.Position)) Printer.PrintSimple("Danger!!!");
-                else Printer.PrintSimple("Turtle moved, it's alive!");
-                Thread.Sleep(1500);
-                turtle.Move(Directions.North);
-                if (_observer.IsDanger(turtle.Position)) Printer.PrintSimple("Danger!!!");
-                else Printer.PrintSimple("Turtle moved, it's alive!");
-                Thread.Sleep(1500);
-                turtle.Move(Directions.West);
-                if (_observer.IsDanger(turtle.Position)) Printer.PrintSimple("Danger!!!");
-                else Printer.PrintSimple("Turtle moved, it's alive!");
-                Thread.Sleep(1500);
+                if (moves[i] == "r") turtle.Rotate();
+                else if (moves[i] == "m") turtle.Move();
             }
         }
 
         private void Initialize()
         {
             SetTurtle(_turtleStartPoint);
-            SetExit(advanceSettings.ExitPoint);
-            SetMines(advanceSettings.MinePoints);
-            
+            SetExit(_advancedSettings.ExitPoint);
+            SetMines(_advancedSettings.MinePoints);
         }
 
         private void SetMines(List<Point> mines)
@@ -96,7 +74,8 @@ namespace Turtle.Library.Models
 
         private void SetTurtle(Point turtlePosition)
         {
-            try {
+            try
+            {
                 _grid[turtlePosition] = Turtle.Instance(turtlePosition);
             }
             catch

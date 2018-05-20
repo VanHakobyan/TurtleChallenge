@@ -58,7 +58,7 @@ namespace Turtle.Library
             int.TryParse(startPositionStrings[2], out var posX);
             int.TryParse(startPositionStrings[4], out var posY);
             settings.StartPoint = new Point(posX, posY);
-            settings.Directory = startPositionStrings[6];
+            settings.Direction = startPositionStrings[6];
 
             var exitPointStrings = settingString[2].Split(',');
             int.TryParse(exitPointStrings[2], out var exitX);
