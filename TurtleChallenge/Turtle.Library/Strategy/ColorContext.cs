@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Turtle.Library.Strategy
 {
-    class ColorContext
+    public class ColorContext
     {
         private Color _color;
 

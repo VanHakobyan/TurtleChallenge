@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading;
 using Turtle.Library.ReadModels;
 
 namespace Turtle.Library.Models
@@ -40,7 +41,7 @@ namespace Turtle.Library.Models
         /// </summary>
         public void Start()
         {
-            var moves = _simpleSettings.MoveExit;
+            var moves = _simpleSettings.MoveHitMine;
             var turtle = _grid[_turtleStartPoint] as Turtle;
             if (System.Enum.TryParse<Directions>(_advancedSettings.Direction, out var dir)) turtle.Direction = dir;
             Printer.Print(turtle);
@@ -48,6 +49,7 @@ namespace Turtle.Library.Models
             {
                 if (moves[i] == "r") turtle.Rotate();
                 else if (moves[i] == "m") turtle.Move();
+                Thread.Sleep(1500);
                 var situation = _observer.Observe(turtle.Position);
                 if (situation == State.IsDead)
                 {
