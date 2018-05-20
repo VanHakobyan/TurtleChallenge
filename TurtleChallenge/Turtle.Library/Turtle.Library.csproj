@@ -49,7 +49,7 @@
     <Compile Include="Models\Point.cs" />
     <Compile Include="Models\Turtle.cs" />
     <Compile Include="Observer.cs" />
-    <Compile Include="ReadModels\AdvanceSettingModel.cs" />
+    <Compile Include="ReadModels\AdvancedSettingModel.cs" />
     <Compile Include="FileReader.cs" />
     <Compile Include="Printer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

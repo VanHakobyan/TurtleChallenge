@@ -12,7 +12,7 @@ namespace Turtle.Library
         /// <summary>
         /// Singleton implementation
         /// 
-        /// File reader can be one 
+        /// File reader must be one 
         /// </summary>
         private static FileReader _fileReader;
         private FileReader() { }
@@ -24,21 +24,24 @@ namespace Turtle.Library
 
         private string[] GetMoves()
         {
-            var moveNoEnd = File.ReadAllText("..\\..\\Settings\\move-no end.csv");
+            var moveNoEnd = File.ReadAllText("..\\..\\Settings\\moves.csv");
             return moveNoEnd.Split(',');
         }
 
-
+        /// <summary>
+        /// get move sequence from csv file
+        /// </summary>
+        /// <returns></returns>
         public SimpleSettingsModel GetSimpleSettings() => new SimpleSettingsModel { Moves = GetMoves() };
 
         /// <summary>
-        /// Advance setting reeader 
+        /// Advance setting reader 
         /// </summary>
         /// <returns></returns>
-        public AdvanceSettingModel GetAdvanceSettings()
+        public AdvancedSettingsModel GetAdvanceSettings()
         {
             var settingString = File.ReadAllLines("..\\..\\Settings\\settings.csv");
-            var settings = new AdvanceSettingModel();
+            var settings = new AdvancedSettingsModel();
 
             var sizeStrings = settingString[0].Split(',');
             int.TryParse(sizeStrings[1], out var sizeX);

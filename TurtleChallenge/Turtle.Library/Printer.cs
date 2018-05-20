@@ -16,7 +16,7 @@ namespace Turtle.Library
         public const string Success = "Success";
 
         /// <summary>
-        /// 
+        /// print turtle moved from point a to point b
         /// </summary>
         /// <param name="pointFrom"></param>
         /// <param name="pointTo"></param>
@@ -35,6 +35,10 @@ namespace Turtle.Library
             Console.WriteLine(new string('-', 50));
         }
 
+        /// <summary>
+        /// print a text
+        /// </summary>
+        /// <param name="text"></param>
         public static void Print(string text)
         {
             var contextGreen = new ColorContext(new Green());
@@ -45,6 +49,10 @@ namespace Turtle.Library
             Console.WriteLine(new string('-', 50));
         }
 
+        /// <summary>
+        /// print turtle changed its direction
+        /// </summary>
+        /// <param name="dir"></param>
         public static void Print(Directions dir)
         {
             var contextGreen = new ColorContext(new Green());
@@ -55,6 +63,10 @@ namespace Turtle.Library
             Console.WriteLine(new string('-', 50));
         }
 
+        /// <summary>
+        /// print turtle's starting state
+        /// </summary>
+        /// <param name="turtle"></param>
         public static void Print(Turtle.Library.Models.Turtle turtle)
         {
             var contextGreen = new ColorContext(new Green());

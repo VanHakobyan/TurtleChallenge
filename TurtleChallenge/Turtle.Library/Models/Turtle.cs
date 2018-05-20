@@ -20,7 +20,7 @@
 
 
         /// <summary>
-        /// MOve by Point
+        /// Move by Point
         /// </summary>
         public void Move()
         {
@@ -45,6 +45,9 @@
             }
         }
 
+        /// <summary>
+        /// rotate turtle
+        /// </summary>
         public void Rotate()
         {
             switch (Direction)

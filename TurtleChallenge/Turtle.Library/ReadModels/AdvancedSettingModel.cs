@@ -3,7 +3,7 @@ using Turtle.Library.Models;
 
 namespace Turtle.Library.ReadModels
 {
-    public class AdvanceSettingModel
+    public class AdvancedSettingsModel
     {
         public Point Size { get; set; }
         public Point StartPoint { get; set; }
