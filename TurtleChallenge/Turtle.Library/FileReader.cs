@@ -22,26 +22,14 @@ namespace Turtle.Library
         }
         #endregion
 
-        private List<string> GetListMoveExit()
-        {
-            var moveExit = File.ReadAllText("..\\..\\Settings\\move-exit.csv");
-            return moveExit.Split(',').ToList();
-        }
-
-        private List<string> GetListMoveHitMine()
-        {
-            var moveHitMine = File.ReadAllText("..\\..\\Settings\\move-hit mine.csv");
-            return moveHitMine.Split(',').ToList();
-        }
-
-        private List<string> GetListMoveNoEnd()
+        private string[] GetMoves()
         {
             var moveNoEnd = File.ReadAllText("..\\..\\Settings\\move-no end.csv");
-            return moveNoEnd.Split(',').ToList();
+            return moveNoEnd.Split(',');
         }
 
 
-        public SimpleSettingsModel GetSimpleSettings() => new SimpleSettingsModel { MoveExit = GetListMoveExit(), MoveHitMine = GetListMoveHitMine(), MoveMoveNoEnd = GetListMoveNoEnd() };
+        public SimpleSettingsModel GetSimpleSettings() => new SimpleSettingsModel { Moves = GetMoves() };
 
         /// <summary>
         /// Advance setting reeader 
