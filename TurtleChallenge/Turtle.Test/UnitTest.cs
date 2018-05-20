@@ -7,7 +7,7 @@ using Turtle.Library.Strategy;
 namespace Turtle.Test
 {
     [TestClass]
-    public class UnitTest1
+    public class UnitTest
     {
         [TestMethod]
         public void TestPoint()
@@ -30,5 +30,22 @@ namespace Turtle.Test
             var tString = typeof(Color).ToString();
             Assert.AreEqual(colorGreen,tString);
         }
+
+        [TestMethod]
+        public void TestTurtle()
+        {
+            var turtle = Library.Models.Turtle.Instance(new Point(5, 6));
+            var positionX = turtle.Position.X;
+            var positionY = turtle.Position.Y;
+            Assert.AreEqual(positionX,5);
+            Assert.AreEqual(positionY,6);
+        }
+
+        [TestMethod]
+        public void TestPrinter()
+        {
+            Assert.AreNotEqual(Printer.Success,Printer.Dead);
+        }
+
     }
 }
