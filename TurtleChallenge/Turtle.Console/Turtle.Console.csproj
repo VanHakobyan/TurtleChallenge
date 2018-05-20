@@ -47,9 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Settings\move-exit.csv" />
-    <None Include="Settings\move-hit mine.csv" />
-    <None Include="Settings\move-no end.csv" />
+    <None Include="Settings\moves.csv" />
     <None Include="Settings\settings.csv" />
   </ItemGroup>
   <ItemGroup>

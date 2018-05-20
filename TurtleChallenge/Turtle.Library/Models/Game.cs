@@ -31,14 +31,15 @@ namespace Turtle.Library.Models
 
         public void Start()
         {
-            var moves = _simpleSettings.MoveExit;
+            var moves = _simpleSettings.Moves;
             var turtle = _grid[_turtleStartPoint] as Turtle;
             if (System.Enum.TryParse<Directions>(_advancedSettings.Direction, out var dir)) turtle.Direction = dir;
             Printer.Print(turtle);
-            for (int i = 0; i < moves.Count; i++)
+            for (int i = 0; i < moves.Length; i++)
             {
                 if (moves[i] == "r") turtle.Rotate();
                 else if (moves[i] == "m") turtle.Move();
+                Thread.Sleep(1000);
                 var situation = _observer.Observe(turtle.Position);
                 if (situation == State.IsDead)
                 {
