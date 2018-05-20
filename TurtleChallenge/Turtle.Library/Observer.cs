@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Turtle.Library.Models;
 
 namespace Turtle.Library
@@ -20,6 +17,11 @@ namespace Turtle.Library
             _grid = grid;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="position"></param>
+        /// <returns></returns>
         public State Observe(Point position)
         {
             if (IsExit(position)) return State.IsExit;
@@ -50,6 +52,12 @@ namespace Turtle.Library
             return _grid[position] is Exit;
         }
 
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="position"></param>
+        /// <returns></returns>
         private List<Point> GetAdjacentPositions(Point position)
         {
             var list = new List<Point>();

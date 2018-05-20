@@ -18,6 +18,10 @@
 
         public Directions Direction { get; set; }
 
+
+        /// <summary>
+        /// MOve by Point
+        /// </summary>
         public void Move()
         {
             switch (Direction)

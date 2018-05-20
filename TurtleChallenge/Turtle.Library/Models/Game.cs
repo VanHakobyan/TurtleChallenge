@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Threading;
 using Turtle.Library.ReadModels;
 
 namespace Turtle.Library.Models
@@ -13,6 +12,11 @@ namespace Turtle.Library.Models
         private Grid _grid;
         private Observer _observer;
 
+        #region Factory method
+
+        /// <summary>
+        /// Factory method implementation 
+        /// </summary>
         private Game()
         {
             _fileReader = FileReader.Instance();
@@ -27,8 +31,13 @@ namespace Turtle.Library.Models
         public static Game CreateNewGame()
         {
             return new Game();
-        }
+        } 
+        #endregion
 
+
+        /// <summary>
+        /// Start game from start position
+        /// </summary>
         public void Start()
         {
             var moves = _simpleSettings.Moves;
@@ -43,21 +52,21 @@ namespace Turtle.Library.Models
                 var situation = _observer.Observe(turtle.Position);
                 if (situation == State.IsDead)
                 {
-                    Printer.Print("Our poor turtle is dead");
+                    Printer.Print(Printer.Dead);
                     break;
                 }
                 else if (situation == State.IsExit)
                 {
-                    Printer.Print("success");
+                    Printer.Print(Printer.Success);
                     break;
                 }
                 else if (situation == State.IsOutOfBounds)
                 {
-                    Printer.Print("Turtle went out of bounds");
+                    Printer.Print(Printer.Out);
                 }
                 else if (situation == State.IsDanger)
                 {
-                    Printer.Print("Danger is near!");
+                    Printer.Print(Printer.IsNear);
                 }
             }
         }
@@ -69,6 +78,11 @@ namespace Turtle.Library.Models
             SetMines(_advancedSettings.MinePoints);
         }
 
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="mines"></param>
         private void SetMines(List<Point> mines)
         {
             foreach (var minePosition in mines)
@@ -82,6 +96,10 @@ namespace Turtle.Library.Models
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="exitPosition"></param>
         private void SetExit(Point exitPosition)
         {
             try
@@ -92,6 +110,11 @@ namespace Turtle.Library.Models
             {/*ignore*/}
         }
 
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="turtlePosition"></param>
         private void SetTurtle(Point turtlePosition)
         {
             try

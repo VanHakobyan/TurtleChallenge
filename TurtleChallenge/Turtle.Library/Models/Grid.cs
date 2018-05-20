@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Turtle.Library.Models
+﻿namespace Turtle.Library.Models
 {
     public class Grid
     {
@@ -12,6 +6,11 @@ namespace Turtle.Library.Models
         public int Width { get; private set; }
         public int Height { get; private set; }
 
+        /// <summary>
+        /// Grid init.
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
         public Grid(int x, int y)
         {
             Width = y;
@@ -27,6 +26,7 @@ namespace Turtle.Library.Models
                 }
             }
         }
+        #region Indexers
 
         public Element this[int index1, int index2]
         {
@@ -38,6 +38,8 @@ namespace Turtle.Library.Models
         {
             get { return _elements[p.X][p.Y]; }
             set { _elements[p.X][p.Y] = value; }
-        }
+        } 
+
+        #endregion
     }
 }
