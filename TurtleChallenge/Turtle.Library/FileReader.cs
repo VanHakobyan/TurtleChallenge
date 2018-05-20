@@ -43,7 +43,10 @@ namespace Turtle.Library
 
         public SimpleSettingsModel GetSimpleSettings() => new SimpleSettingsModel { MoveExit = GetListMoveExit(), MoveHitMine = GetListMoveHitMine(), MoveMoveNoEnd = GetListMoveNoEnd() };
 
-
+        /// <summary>
+        /// Advance setting reeader 
+        /// </summary>
+        /// <returns></returns>
         public AdvanceSettingModel GetAdvanceSettings()
         {
             var settingString = File.ReadAllLines("..\\..\\Settings\\settings.csv");
