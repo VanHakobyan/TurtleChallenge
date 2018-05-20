@@ -18,7 +18,7 @@ namespace Turtle.Library
         }
 
         /// <summary>
-        /// 
+        /// observe the situation after turtle moved
         /// </summary>
         /// <param name="position"></param>
         /// <returns></returns>
@@ -31,7 +31,7 @@ namespace Turtle.Library
             else return State.Normal;
         }
 
-        public bool IsDanger(Point position)
+        private bool IsDanger(Point position)
         {
             var adjacentPoints = GetAdjacentPositions(position);
             return adjacentPoints.Any(x => _grid[position] is Mine);
@@ -52,12 +52,6 @@ namespace Turtle.Library
             return _grid[position] is Exit;
         }
 
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="position"></param>
-        /// <returns></returns>
         private List<Point> GetAdjacentPositions(Point position)
         {
             var list = new List<Point>();

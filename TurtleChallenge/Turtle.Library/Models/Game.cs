@@ -8,7 +8,7 @@ namespace Turtle.Library.Models
     {
         private Point _turtleStartPoint;
         private FileReader _fileReader;
-        private AdvanceSettingModel _advancedSettings;
+        private AdvancedSettingsModel _advancedSettings;
         private SimpleSettingsModel _simpleSettings;
         private Grid _grid;
         private Observer _observer;
@@ -81,7 +81,7 @@ namespace Turtle.Library.Models
 
 
         /// <summary>
-        /// 
+        /// setting mines in the grid
         /// </summary>
         /// <param name="mines"></param>
         private void SetMines(List<Point> mines)
@@ -98,7 +98,7 @@ namespace Turtle.Library.Models
         }
 
         /// <summary>
-        /// 
+        /// setting exit point in the grid
         /// </summary>
         /// <param name="exitPosition"></param>
         private void SetExit(Point exitPosition)
@@ -113,7 +113,7 @@ namespace Turtle.Library.Models
 
 
         /// <summary>
-        /// 
+        /// setting turtle in the grid
         /// </summary>
         /// <param name="turtlePosition"></param>
         private void SetTurtle(Point turtlePosition)
